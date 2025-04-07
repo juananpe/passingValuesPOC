@@ -16,6 +16,9 @@ public class SecondController {
     @FXML
     private Label coloredLabel;
     
+    @FXML
+    private Label colorNameLabel;
+    
     // Reference to the shared model
     private final ColorModel colorModel = ColorModel.getInstance();
     
@@ -24,9 +27,29 @@ public class SecondController {
         try {
             // Bind the text fill property directly to the color property in the model
             coloredLabel.textFillProperty().bind(colorModel.colorProperty());
+            
+            // Set the color name text
+            Color currentColor = colorModel.getColor();
+            String colorName = getColorName(currentColor);
+            colorNameLabel.setText("Selected color: " + colorName);
         } catch (Exception e) {
             System.err.println("Error in initialize: " + e.getMessage());
             e.printStackTrace();
+        }
+    }
+    
+    /**
+     * Helper method to get the color name from a Color object
+     */
+    private String getColorName(Color color) {
+        if (color.equals(Color.RED)) {
+            return "Red";
+        } else if (color.equals(Color.GREEN)) {
+            return "Green";
+        } else if (color.equals(Color.BLUE)) {
+            return "Blue";
+        } else {
+            return "Unknown";
         }
     }
     

@@ -11,5 +11,7 @@
 
     <Label fx:id="coloredLabel" text="This text is colored!" style="-fx-font-size: 20px;"/>
     
+    <Label fx:id="colorNameLabel" text="Selected color: " style="-fx-font-size: 14px;"/>
+    
     <Button text="Go Back" onAction="#goBack"/>
 </VBox> 
