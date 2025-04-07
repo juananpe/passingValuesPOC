@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml" fx:controller="eus.ehu.template.ui.HelloController">
+    <fx:define>
+        <ToggleGroup fx:id="colorToggleGroup"/>
+    </fx:define>
+
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label fx:id="welcomeText" text="Welcome to JavaFX!" style="-fx-font-size: 20px;"/>
+    
+    <VBox spacing="10">
+        <Label text="Select a color:"/>
+        <RadioButton text="Red" toggleGroup="$colorToggleGroup" userData="RED"/>
+        <RadioButton text="Green" toggleGroup="$colorToggleGroup" userData="GREEN"/>
+        <RadioButton text="Blue" toggleGroup="$colorToggleGroup" userData="BLUE"/>
+    </VBox>
+
+    <Button text="Apply Color" onAction="#handleColorChange"/>
+</VBox>
