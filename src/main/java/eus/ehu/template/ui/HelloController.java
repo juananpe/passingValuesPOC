@@ -1,6 +1,5 @@
 package eus.ehu.template.ui;
 
-import eus.ehu.template.businessLogic.BlFacadeImplementation;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.RadioButton;
@@ -20,6 +19,9 @@ public class HelloController {
     
     @FXML
     private Label welcomeText;
+    
+    // Reference to the shared model
+    private final ColorModel colorModel = ColorModel.getInstance();
 
     @FXML
     private void handleColorChange(ActionEvent event) {
@@ -44,8 +46,8 @@ public class HelloController {
                         break;
                 }
                 
-                // Store the selected color in the business logic
-                BlFacadeImplementation.getInstance().setSelectedColor(selectedColor);
+                // Update the color in the shared model
+                colorModel.setColor(selectedColor);
                 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("second.fxml"));
                 Parent root = loader.load();

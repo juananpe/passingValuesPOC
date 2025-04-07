@@ -1,6 +1,5 @@
 package eus.ehu.template.ui;
 
-import eus.ehu.template.businessLogic.BlFacadeImplementation;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
@@ -17,12 +16,14 @@ public class SecondController {
     @FXML
     private Label coloredLabel;
     
+    // Reference to the shared model
+    private final ColorModel colorModel = ColorModel.getInstance();
+    
     @FXML
     public void initialize() {
         try {
-            // Apply the color when the view is initialized
-            Color selectedColor = BlFacadeImplementation.getInstance().getSelectedColor();
-            coloredLabel.setTextFill(selectedColor);
+            // Bind the text fill property directly to the color property in the model
+            coloredLabel.textFillProperty().bind(colorModel.colorProperty());
         } catch (Exception e) {
             System.err.println("Error in initialize: " + e.getMessage());
             e.printStackTrace();

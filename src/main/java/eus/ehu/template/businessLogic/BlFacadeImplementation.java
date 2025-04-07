@@ -2,7 +2,6 @@ package eus.ehu.template.businessLogic;
 
 import eus.ehu.template.configuration.Config;
 import eus.ehu.template.dataAccess.DataAccess;
-import javafx.scene.paint.Color;
 
 import java.util.Calendar;
 
@@ -14,9 +13,6 @@ public class BlFacadeImplementation implements BlFacade {
 
     DataAccess dbManager;
     Config config = Config.getInstance();
-    
-    // Store the selected color - not related to database
-    private static Color selectedColor = Color.BLACK;
 
     private static BlFacadeImplementation bl = null;
 
@@ -45,22 +41,6 @@ public class BlFacadeImplementation implements BlFacade {
     
     private BlFacadeImplementation() {
         this(true); // Default constructor still tries to initialize DB
-    }
-    
-    /**
-     * Sets the selected color - does not require database
-     * @param color the color to set
-     */
-    public void setSelectedColor(Color color) {
-        selectedColor = color;
-    }
-    
-    /**
-     * Gets the selected color - does not require database
-     * @return the selected color
-     */
-    public Color getSelectedColor() {
-        return selectedColor;
     }
 
 }
